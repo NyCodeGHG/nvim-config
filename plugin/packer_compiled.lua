@@ -79,11 +79,6 @@ _G.packer_plugins = {
     path = "/home/marie/.local/share/nvim/site/pack/packer/start/LuaSnip",
     url = "https://github.com/L3MON4D3/LuaSnip"
   },
-  catppuccin = {
-    loaded = true,
-    path = "/home/marie/.local/share/nvim/site/pack/packer/start/catppuccin",
-    url = "https://github.com/catppuccin/nvim"
-  },
   ["cmp-buffer"] = {
     loaded = true,
     path = "/home/marie/.local/share/nvim/site/pack/packer/start/cmp-buffer",
@@ -124,11 +119,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/marie/.local/share/nvim/site/pack/packer/start/friendly-snippets",
     url = "https://github.com/rafamadriz/friendly-snippets"
-  },
-  harpoon = {
-    loaded = true,
-    path = "/home/marie/.local/share/nvim/site/pack/packer/start/harpoon",
-    url = "https://github.com/theprimeagen/harpoon"
   },
   ["lexima.vim"] = {
     loaded = true,
@@ -200,6 +190,11 @@ _G.packer_plugins = {
     path = "/home/marie/.local/share/nvim/site/pack/packer/start/presence.nvim",
     url = "https://github.com/NyCodeGHG/presence.nvim"
   },
+  ["rust-tools.nvim"] = {
+    loaded = true,
+    path = "/home/marie/.local/share/nvim/site/pack/packer/start/rust-tools.nvim",
+    url = "https://github.com/simrat39/rust-tools.nvim"
+  },
   ["telescope-fzf-native.nvim"] = {
     loaded = true,
     path = "/home/marie/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim",
@@ -209,16 +204,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/marie/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
-  },
-  undotree = {
-    loaded = true,
-    path = "/home/marie/.local/share/nvim/site/pack/packer/start/undotree",
-    url = "https://github.com/mbbill/undotree"
-  },
-  ["vim-fugitive"] = {
-    loaded = true,
-    path = "/home/marie/.local/share/nvim/site/pack/packer/start/vim-fugitive",
-    url = "https://github.com/tpope/vim-fugitive"
   }
 }
 

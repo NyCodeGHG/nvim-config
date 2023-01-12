@@ -1,13 +1,17 @@
-local lsp = require('lsp-zero')
+-- reserve space for diagnostic icons
+vim.opt.signcolumn = 'yes'
 
+local lsp = require('lsp-zero')
 lsp.preset('recommended')
 
 lsp.ensure_installed({
     "tsserver",
-    "eslint",
     "sumneko_lua",
     "rust_analyzer",
 })
+-- don't initialize this language server
+-- we will use rust-tools to setup rust_analyzer
+lsp.skip_server_setup({'rust_analyzer'})
 
 local cmp = require('cmp')
 local cmp_select = {behavior = cmp.SelectBehavior.Select}
@@ -41,7 +45,16 @@ lsp.on_attach(function(client, bufnr)
     vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
 end)
 
+lsp.nvim_workspace()
 lsp.setup()
+
+-- initialize rust_analyzer with rust-tools
+-- see :help lsp-zero.build_options()
+local rust_lsp = lsp.build_options('rust_analyzer', {
+  single_file_support = false,
+})
+
+require('rust-tools').setup({server = rust_lsp})
 
 vim.diagnostic.config({
     virtual_text = true,
