@@ -60,12 +60,8 @@ vim.diagnostic.config({
     virtual_text = true,
 })
 
-local lspkind = require('lspkind')
-cmp.setup({
-    formatting = {
-        format = lspkind.cmp_format({
-            mode = 'symbol_text',
-        })
-    }
-})
+require('lspkind').init({
+    mode = "symbol_text",
+    preset = "default",
+});
 

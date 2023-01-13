@@ -1,4 +1,3 @@
-vim.g.neovide_transparency = 0.8
 vim.cmd [[
 " system clipboard
 nmap <c-c> "+y
@@ -11,3 +10,9 @@ inoremap <c-r> <c-v>
 ]]
 
 vim.opt.guifont = { "JetBrainsMono Nerd Font" }
+
+if vim.loop.os_uname().sysname == "Windows_NT" then
+    vim.g.neovide_transparency = 1
+else
+    vim.g.neovide_transparency = 0.8
+end

@@ -54,7 +54,6 @@ return require('packer').startup(function(use)
         end
     })
 
-    use("onsails/lspkind.nvim")
     use("cohama/lexima.vim")
 
     use("gpanders/editorconfig.nvim")
