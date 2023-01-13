@@ -11,14 +11,14 @@ lsp.ensure_installed({
 })
 -- don't initialize this language server
 -- we will use rust-tools to setup rust_analyzer
-lsp.skip_server_setup({'rust_analyzer'})
+lsp.skip_server_setup({ 'rust_analyzer' })
 
 local cmp = require('cmp')
-local cmp_select = {behavior = cmp.SelectBehavior.Select}
+local cmp_select = { behavior = cmp.SelectBehavior.Select }
 local cmp_mappings = lsp.defaults.cmp_mappings({
-  ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
-  ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
-  ['<C-y>'] = cmp.mapping.confirm({ select = true }),
+    ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
+    ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
+    ['<C-y>'] = cmp.mapping.confirm({ select = true }),
 })
 
 -- disable completion with tab
@@ -27,7 +27,7 @@ cmp_mappings['<Tab>'] = nil
 cmp_mappings['<S-Tab>'] = nil
 
 lsp.setup_nvim_cmp({
-  mapping = cmp_mappings
+    mapping = cmp_mappings
 })
 
 lsp.on_attach(function(client, bufnr)
@@ -51,22 +51,21 @@ lsp.setup()
 -- initialize rust_analyzer with rust-tools
 -- see :help lsp-zero.build_options()
 local rust_lsp = lsp.build_options('rust_analyzer', {
-  single_file_support = false,
+    single_file_support = false,
 })
 
-require('rust-tools').setup({server = rust_lsp})
+require('rust-tools').setup({ server = rust_lsp })
 
 vim.diagnostic.config({
     virtual_text = true,
 })
 
 local lspkind = require('lspkind')
-cmp.setup {
+cmp.setup({
     formatting = {
         format = lspkind.cmp_format({
-            mode = 'symbol', -- show only symbol annotations
-            maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
-            ellipsis_char = '...', -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead (must define maxwidth first)
+            mode = 'symbol_text',
         })
     }
-}
+})
+
