@@ -60,8 +60,3 @@ vim.diagnostic.config({
     virtual_text = true,
 })
 
-require('lspkind').init({
-    mode = "symbol_text",
-    preset = "default",
-});
-
