@@ -36,6 +36,7 @@ return require('packer').startup(function(use)
             { 'rafamadriz/friendly-snippets' },
         }
     }
+    use('ray-x/lsp_signature.nvim')
     use('simrat39/rust-tools.nvim')
 
     use('shaunsingh/oxocarbon.nvim')
