@@ -13,6 +13,9 @@ vim.opt.wrap = false
 vim.opt.swapfile = false
 vim.opt.backup = false
 
+-- Disable netrw banner
+vim.g.netrw_banner = 0
+
 if vim.loop.os_uname().sysname == "Windows_NT" then
     vim.cmd [[
         let &shell = executable('pwsh') ? 'pwsh' : 'powershell'
