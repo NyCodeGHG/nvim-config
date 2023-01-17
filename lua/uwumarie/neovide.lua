@@ -9,9 +9,9 @@ cnoremap <c-v> <c-r>+
 inoremap <c-r> <c-v>
 ]]
 
-vim.opt.guifont = { "JetBrainsMono Nerd Font" }
+vim.opt.guifont = { 'JetBrainsMono Nerd Font' }
 
-if vim.loop.os_uname().sysname == "Windows_NT" then
+if vim.loop.os_uname().sysname == 'Windows_NT' then
     vim.g.neovide_transparency = 1
 else
     vim.g.neovide_transparency = 0.8

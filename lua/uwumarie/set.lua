@@ -16,7 +16,7 @@ vim.opt.backup = false
 -- Disable netrw banner
 vim.g.netrw_banner = 0
 
-if vim.loop.os_uname().sysname == "Windows_NT" then
+if vim.loop.os_uname().sysname == 'Windows_NT' then
     vim.cmd [[
         let &shell = executable('pwsh') ? 'pwsh' : 'powershell'
 		let &shellcmdflag = '-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;'

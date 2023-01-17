@@ -43,11 +43,11 @@ return require('packer').startup(function(use)
 
     -- Visualize lsp progress
     use({
-        "j-hui/fidget.nvim",
+        'j-hui/fidget.nvim',
         config = function()
-            require("fidget").setup({
+            require('fidget').setup({
                 text = {
-                    spinner = "dots",
+                    spinner = 'dots',
                 },
                 timer = {
                     spinner_rate = 80,
@@ -56,13 +56,13 @@ return require('packer').startup(function(use)
         end
     })
 
-    use("cohama/lexima.vim")
+    use('cohama/lexima.vim')
 
-    use("gpanders/editorconfig.nvim")
+    use('gpanders/editorconfig.nvim')
     -- Transparency
-    use("xiyaowong/nvim-transparent")
-    use("lewis6991/impatient.nvim")
-    use("JoosepAlviste/nvim-ts-context-commentstring")
+    use('xiyaowong/nvim-transparent')
+    use('lewis6991/impatient.nvim')
+    use('JoosepAlviste/nvim-ts-context-commentstring')
     use({
         'numToStr/Comment.nvim',
         config = function()
@@ -76,4 +76,5 @@ return require('packer').startup(function(use)
         'nvim-lualine/lualine.nvim',
         requires = { 'kyazdani42/nvim-web-devicons', opt = true }
     }
+    use('mhartington/formatter.nvim')
 end)
