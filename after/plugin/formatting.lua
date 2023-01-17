@@ -46,5 +46,8 @@ formatter.setup({
             -- filetype
             require("formatter.filetypes.any").remove_trailing_whitespace,
         },
+        sql = {
+            require('formatter.filetypes.sql').pgformat
+        }
     },
 })
