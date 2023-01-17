@@ -25,8 +25,27 @@ local cmp_mappings = lsp.defaults.cmp_mappings({
 	["<C-e>"] = cmp.mapping.abort(),
 })
 
+local lspkind = require("lspkind")
+
 lsp.setup_nvim_cmp({
 	mapping = cmp_mappings,
+	formatting = {
+		fields = { "abbr", "kind", "menu" },
+		format = lspkind.cmp_format({
+			mode = "symbol_text",
+			with_text = true,
+			menu = {
+				buffer = "[buf]",
+				nvim_lsp = "[LSP]",
+				nvim_lua = "[api]",
+				path = "[path]",
+				luasnip = "[snip]",
+			},
+		}),
+	},
+	experimental = {
+		native_menu = false,
+	},
 })
 
 local signature = {
@@ -130,3 +149,4 @@ require("rust-tools").setup({ server = rust_lsp })
 vim.diagnostic.config({
 	virtual_text = true,
 })
+
