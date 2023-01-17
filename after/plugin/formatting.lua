@@ -48,6 +48,9 @@ formatter.setup({
         },
         sql = {
             require('formatter.filetypes.sql').pgformat
+        },
+        json = {
+            require('formatter.filetypes.json').jq
         }
     },
 })
