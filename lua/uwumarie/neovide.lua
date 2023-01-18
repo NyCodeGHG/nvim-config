@@ -1,4 +1,4 @@
-vim.cmd [[
+vim.cmd([[
 " system clipboard
 nmap <c-c> "+y
 vmap <c-c> "+y
@@ -7,7 +7,7 @@ inoremap <c-v> <c-r>+
 cnoremap <c-v> <c-r>+
 " use <c-r> to insert original character without triggering things like auto-pairs
 inoremap <c-r> <c-v>
-]]
+]])
 
 vim.opt.guifont = { 'JetBrainsMono Nerd Font' }
 
