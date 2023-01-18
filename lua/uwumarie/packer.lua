@@ -46,16 +46,6 @@ return require('packer').startup(function(use)
     -- Visualize lsp progress
     use({
         'j-hui/fidget.nvim',
-        config = function()
-            require('fidget').setup({
-                text = {
-                    spinner = 'dots',
-                },
-                timer = {
-                    spinner_rate = 80,
-                },
-            })
-        end,
     })
 
     use('cohama/lexima.vim')
@@ -80,4 +70,6 @@ return require('packer').startup(function(use)
     })
     use('mhartington/formatter.nvim')
     use('onsails/lspkind.nvim')
+
+    use('fladson/vim-kitty')
 end)
