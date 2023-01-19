@@ -4,15 +4,6 @@ vim.opt.signcolumn = 'yes'
 local configs = require('lspconfig.configs')
 local lspconfig = require('lspconfig')
 local util = require('lspconfig.util')
-configs.infinite = {
-    default_config = {
-        cmd = { '/home/marie/projects/infinite-progress-lsp/target/release/infinite-progress-lsp' },
-        filetypes = { 'lua' },
-        root_dir = util.find_git_ancestor,
-        settings = {},
-    },
-}
-lspconfig.infinite.setup({})
 
 local lsp = require('lsp-zero')
 lsp.preset('recommended')
@@ -134,15 +125,19 @@ lsp.configure('yamlls', {
             },
         },
     },
+    on_attach = function(client, bufnr)
+        -- local success = client.notify('yaml/supportSchemaSelection', nil)
+        -- print(success)
+    end,
 })
 
 lsp.configure('jsonls', {
     settings = {
         json = {
             schemas = schemastore.json.schemas(),
-            validate = { enable = true }
-        }
-    }
+            validate = { enable = true },
+        },
+    },
 })
 
 lsp.configure('tsserver', {
