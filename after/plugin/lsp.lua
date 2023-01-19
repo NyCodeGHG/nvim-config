@@ -12,7 +12,7 @@ configs.infinite = {
         settings = {},
     },
 }
-lspconfig.infinite.setup{}
+lspconfig.infinite.setup({})
 
 local lsp = require('lsp-zero')
 lsp.preset('recommended')
@@ -121,15 +121,11 @@ lsp.on_attach(function(client, bufnr)
     require('lsp_signature').on_attach(signature, bufnr)
 end)
 
+local schemastore = require('schemastore')
 lsp.configure('yamlls', {
     settings = {
         yaml = {
-            schemas = {
-                -- kubernetes = "/*.yaml",
-                ['https://raw.githubusercontent.com/docker/cli/master/cli/compose/schema/data/config_schema_v3.10.json'] = '/docker-compose.yaml',
-            },
-            schemaDownload = { enable = true },
-            schemaStore = { enable = true },
+            schemas = schemastore.json.schemas(),
             validate = true,
         },
         redhat = {
@@ -138,6 +134,15 @@ lsp.configure('yamlls', {
             },
         },
     },
+})
+
+lsp.configure('jsonls', {
+    settings = {
+        json = {
+            schemas = schemastore.json.schemas(),
+            validate = { enable = true }
+        }
+    }
 })
 
 lsp.configure('tsserver', {

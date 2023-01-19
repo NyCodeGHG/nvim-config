@@ -1,8 +1,18 @@
-require('fidget').setup({
-    text = {
-        spinner = 'dots',
-    },
-    timer = {
-        spinner_rate = 80,
-    },
-})
+require("fidget").setup {
+  text = {
+    spinner = "bouncing_bar",
+  },
+  align = {
+    bottom = true,
+  },
+  window = {
+    relative = "editor",
+    blend = 0,
+  },
+  fmt = {
+      stack_upwards = false
+  },
+  timer = {
+      spinner_rate = 80,
+  }
+}

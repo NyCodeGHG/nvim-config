@@ -72,4 +72,6 @@ return require('packer').startup(function(use)
     use('onsails/lspkind.nvim')
 
     use('fladson/vim-kitty')
+    use({ 'lewis6991/gitsigns.nvim', tag = 'release' })
+    use('b0o/schemastore.nvim')
 end)
