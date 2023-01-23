@@ -40,7 +40,25 @@ return {
         end,
       },
       integrations = {
-        fidget = true,
+        cmp = true,
+        gitsigns = true,
+        telescope = true,
+        neotree = true,
+        native_lsp = {
+          enabled = true,
+          virtual_text = {
+            errors = { 'italic' },
+            hints = { 'italic' },
+            warnings = { 'italic' },
+            information = { 'italic' },
+          },
+          underlines = {
+            errors = { 'underline' },
+            hints = { 'underline' },
+            warnings = { 'underline' },
+            information = { 'underline' },
+          },
+        },
       },
     },
     init = function()

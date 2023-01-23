@@ -15,6 +15,7 @@ return {
 
       'L3MON4D3/LuaSnip',
       'rafamadriz/friendly-snippets',
+      'Saecki/crates.nvim',
     },
     init = function()
       -- reserve space for diagnostic icons
@@ -49,6 +50,13 @@ return {
       lsp.setup_nvim_cmp({
         preselect = cmp.PreselectMode.None,
         mapping = cmp_mappings,
+        sources = {
+          { name = 'nvim_lsp' },
+          { name = 'crates' },
+          { name = 'path', keyword_length = 3 },
+          { name = 'luasnip', keyword_length = 3 },
+          { name = 'buffer', keyword_length = 5 },
+        },
         formatting = {
           fields = { 'abbr', 'kind', 'menu' },
           format = lspkind.cmp_format({
