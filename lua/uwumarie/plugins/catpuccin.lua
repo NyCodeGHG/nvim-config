@@ -6,7 +6,6 @@ return {
     opts = {
       flavour = 'mocha', -- latte, frappe, macchiato, mocha
       term_colors = true,
-      transparent_background = true,
       no_italic = false,
       no_bold = false,
       styles = {
@@ -21,11 +20,6 @@ return {
         booleans = {},
         properties = {},
         types = {},
-      },
-      color_overrides = {
-        mocha = {
-          base = '#000000',
-        },
       },
       highlight_overrides = {
         mocha = function(C)
