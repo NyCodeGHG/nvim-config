@@ -4,6 +4,7 @@ return {
     keys = {
       { '<leader>ft', '<cmd>Neotree toggle<cr>', desc = 'NeoTree' },
     },
+    lazy = false,
     branch = 'v2.x',
     config = function()
       require('neo-tree').setup()
