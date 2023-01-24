@@ -26,6 +26,7 @@
   "neovim-session-manager": { "branch": "master", "commit": "afd2d691667036ee50c4783c292ed072d9573be7" },
   "nui.nvim": { "branch": "main", "commit": "b99e6cb13dc51768abc1c4c8585045a0c0459ef1" },
   "nvim-cmp": { "branch": "main", "commit": "11a95792a5be0f5a40bab5fc5b670e5b1399a939" },
+  "nvim-colorizer.lua": { "branch": "master", "commit": "36c610a9717cc9ec426a07c8e6bf3b3abcb139d6" },
   "nvim-lspconfig": { "branch": "master", "commit": "85cd2ecacd8805614efe3fb3a5146ac7d0f88a17" },
   "nvim-treesitter": { "branch": "master", "commit": "f3b8f00143669b7dd8d22f6bedbe98a0ff1a8317" },
   "nvim-web-devicons": { "branch": "master", "commit": "3548363849878ef895ce54edda02421279b419d8" },
