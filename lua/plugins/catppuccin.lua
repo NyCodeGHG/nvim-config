@@ -33,6 +33,7 @@ return {
           }
         end,
       },
+      compile_path = vim.fn.stdpath("cache") .. "/catppuccin",
       integrations = {
         cmp = true,
         gitsigns = true,
@@ -53,6 +54,23 @@ return {
             information = { "underline" },
           },
         },
+        indent_blankline = {
+          enabled = true,
+          colored_indent_levels = false,
+        },
+        leap = true,
+        mason = true,
+        mini = true,
+        noice = true,
+        navic = {
+          enabled = true,
+          custom_bg = "NONE",
+        },
+        notify = true,
+        treesitter = true,
+        lsp_trouble = true,
+        illuminate = true,
+        which_key = true,
       },
     },
   },
@@ -63,6 +81,17 @@ return {
         theme = "catppuccin",
       },
     },
+  },
+  {
+    "akinsho/bufferline.nvim",
+    dependencies = {
+      "catppuccin/nvim",
+    },
+    opts = function()
+      return {
+        highlights = require("catppuccin.groups.integrations.bufferline").get(),
+      }
+    end,
   },
   {
     "LazyVim/LazyVim",
