@@ -1,1 +1,1 @@
-require('uwumarie')
+require('config.lazy')

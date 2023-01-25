@@ -1,10 +1,10 @@
 return {
   {
-    'catppuccin/nvim',
-    name = 'catppuccin',
+    "catppuccin/nvim",
+    name = "catppuccin",
     lazy = true,
     opts = {
-      flavour = 'mocha', -- latte, frappe, macchiato, mocha
+      flavour = "mocha", -- latte, frappe, macchiato, mocha
       term_colors = true,
       no_italic = false,
       no_bold = false,
@@ -29,7 +29,7 @@ return {
             CmpBorder = { fg = C.surface2 },
             Pmenu = { bg = C.none },
             NormalFloat = { bg = C.none },
-            TelescopeBorder = { link = 'FloatBorder' },
+            TelescopeBorder = { link = "FloatBorder" },
           }
         end,
       },
@@ -41,22 +41,33 @@ return {
         native_lsp = {
           enabled = true,
           virtual_text = {
-            errors = { 'italic' },
-            hints = { 'italic' },
-            warnings = { 'italic' },
-            information = { 'italic' },
+            errors = { "italic" },
+            hints = { "italic" },
+            warnings = { "italic" },
+            information = { "italic" },
           },
           underlines = {
-            errors = { 'underline' },
-            hints = { 'underline' },
-            warnings = { 'underline' },
-            information = { 'underline' },
+            errors = { "underline" },
+            hints = { "underline" },
+            warnings = { "underline" },
+            information = { "underline" },
           },
         },
       },
     },
-    init = function()
-      vim.cmd.colorscheme('catppuccin')
-    end,
+  },
+  {
+    "nvim-lualine/lualine.nvim",
+    opts = {
+      options = {
+        theme = "catppuccin",
+      },
+    },
+  },
+  {
+    "LazyVim/LazyVim",
+    opts = {
+      colorscheme = "catppuccin",
+    },
   },
 }
