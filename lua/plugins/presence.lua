@@ -1,6 +1,10 @@
 return {
-  "NyCodeGHG/presence.nvim",
-  opts = {
-    buttons = false,
+  {
+    "NyCodeGHG/presence.nvim",
+    event = "VeryLazy",
+    enabled = false,
+    opts = {
+      buttons = false,
+    },
   },
 }
