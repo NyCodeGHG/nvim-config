@@ -11,6 +11,10 @@ return {
             rt.open_cargo_toml.open_cargo_toml,
             { buffer = bufnr, desc = "Open Cargo.toml" }
           )
+          vim.keymap.set("n", "<Leader>rr", rt.workspace_refresh.reload_workspace, {
+            buffer = bufnr,
+            desc = "Reload Cargo workspace",
+          })
 
           local wk = require("which-key")
 
