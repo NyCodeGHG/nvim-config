@@ -1,31 +1,40 @@
+local extension_path = vim.env.HOME .. "/.vscode-server/extensions/vadimcn.vscode-lldb-1.8.1/"
+local codelldb_path = extension_path .. "adapter/codelldb"
+local liblldb_path = extension_path .. "lldb/lib/liblldb.so" -- MacOS: This may be .dylib
+
 return {
   {
     "simrat39/rust-tools.nvim",
-    opts = {
-      server = {
-        on_attach = function(_, bufnr)
-          local rt = require("rust-tools")
-          vim.keymap.set(
-            "n",
-            "<Leader>rc",
-            rt.open_cargo_toml.open_cargo_toml,
-            { buffer = bufnr, desc = "Open Cargo.toml" }
-          )
-          vim.keymap.set("n", "<Leader>rr", rt.workspace_refresh.reload_workspace, {
-            buffer = bufnr,
-            desc = "Reload Cargo workspace",
-          })
+    opts = function()
+      return {
+        server = {
+          on_attach = function(_, bufnr)
+            local rt = require("rust-tools")
+            vim.keymap.set(
+              "n",
+              "<Leader>rc",
+              rt.open_cargo_toml.open_cargo_toml,
+              { buffer = bufnr, desc = "Open Cargo.toml" }
+            )
+            vim.keymap.set("n", "<Leader>rr", rt.workspace_refresh.reload_workspace, {
+              buffer = bufnr,
+              desc = "Reload Cargo workspace",
+            })
 
-          local wk = require("which-key")
+            local wk = require("which-key")
 
-          wk.register({
-            r = {
-              name = "Rust",
-            },
-          }, { prefix = "<leader>", buffer = bufnr })
-        end,
-      },
-    },
+            wk.register({
+              r = {
+                name = "Rust",
+              },
+            }, { prefix = "<leader>", buffer = bufnr })
+          end,
+        },
+        dap = {
+          adapter = require("rust-tools.dap").get_codelldb_adapter(codelldb_path, liblldb_path),
+        },
+      }
+    end,
   },
   {
     "saecki/crates.nvim",
