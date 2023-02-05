@@ -84,9 +84,6 @@ return {
   },
   {
     "akinsho/bufferline.nvim",
-    dependencies = {
-      "catppuccin/nvim",
-    },
     opts = function()
       return {
         highlights = require("catppuccin.groups.integrations.bufferline").get(),
