@@ -33,6 +33,9 @@ return {
           f(generate_php_namespace, {}),
           t(";"),
         }),
+        s("strict", {
+          t("declare(strict_types=1);"),
+        }),
       })
     end,
   },
