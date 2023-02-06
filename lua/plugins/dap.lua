@@ -30,6 +30,15 @@ return {
     init = function()
       local dap = require("dap")
       local dapui = require("dapui")
+
+      if vim.g.colors_name == "catppuccin" then
+        local sign = vim.fn.sign_define
+
+        sign("DapBreakpoint", { text = "●", texthl = "DapBreakpoint", linehl = "", numhl = "" })
+        sign("DapBreakpointCondition", { text = "●", texthl = "DapBreakpointCondition", linehl = "", numhl = "" })
+        sign("DapLogPoint", { text = "◆", texthl = "DapLogPoint", linehl = "", numhl = "" })
+      end
+
       dap.listeners.after.event_initialized["dapui_config"] = function()
         dapui.open()
       end

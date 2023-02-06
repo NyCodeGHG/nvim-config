@@ -58,6 +58,7 @@ return {
           enabled = true,
           colored_indent_levels = false,
         },
+        markdown = true,
         leap = true,
         mason = true,
         mini = true,
@@ -71,6 +72,10 @@ return {
         lsp_trouble = true,
         illuminate = true,
         which_key = true,
+        dap = {
+          enabled = true,
+          enable_ui = true,
+        },
       },
     },
   },
