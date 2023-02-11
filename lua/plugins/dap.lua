@@ -89,6 +89,20 @@ return {
         noremap = true,
         nowait = false,
       })
+
+      dap.adapters.php = {
+        type = "executable",
+        command = "php-debug-adapter",
+      }
+
+      dap.configurations["php"] = {
+        {
+          type = "php",
+          request = "launch",
+          name = "Listen for xdebug",
+          port = "9003",
+        },
+      }
     end,
   },
   {

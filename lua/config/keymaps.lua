@@ -15,3 +15,7 @@ vim.keymap.set("n", "<leader>gG", function()
   local Util = require("lazyvim.util")
   Util.float_term(command)
 end, { desc = "Lazygit (cwd)" })
+
+vim.keymap.set("n", "<leader>fR", function()
+  require("telescope.builtin").resume()
+end, { desc = "Recent Telescope" })
