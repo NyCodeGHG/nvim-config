@@ -1,10 +1,11 @@
-local extension_path = vim.env.HOME .. "/.vscode-server/extensions/vadimcn.vscode-lldb-1.8.1/"
+local extension_path = vim.env.HOME .. "/.local/share/nvim/mason/packages/codelldb/extension/"
 local codelldb_path = extension_path .. "adapter/codelldb"
 local liblldb_path = extension_path .. "lldb/lib/liblldb.so" -- MacOS: This may be .dylib
 
 return {
   {
     "simrat39/rust-tools.nvim",
+    event = "BufRead *.rs",
     opts = function()
       return {
         server = {

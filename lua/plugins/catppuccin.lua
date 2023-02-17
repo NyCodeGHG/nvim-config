@@ -6,7 +6,7 @@ return {
     opts = {
       flavour = "mocha", -- latte, frappe, macchiato, mocha
       term_colors = true,
-      no_italic = false,
+      no_italic = true,
       no_bold = false,
       styles = {
         comments = {},
@@ -21,18 +21,6 @@ return {
         properties = {},
         types = {},
       },
-      highlight_overrides = {
-        mocha = function(C)
-          return {
-            TabLineSel = { bg = C.pink },
-            NvimTreeNormal = { bg = C.none },
-            CmpBorder = { fg = C.surface2 },
-            Pmenu = { bg = C.none },
-            NormalFloat = { bg = C.none },
-            TelescopeBorder = { link = "FloatBorder" },
-          }
-        end,
-      },
       compile_path = vim.fn.stdpath("cache") .. "/catppuccin",
       integrations = {
         cmp = true,
@@ -41,18 +29,6 @@ return {
         neotree = true,
         native_lsp = {
           enabled = true,
-          virtual_text = {
-            errors = { "italic" },
-            hints = { "italic" },
-            warnings = { "italic" },
-            information = { "italic" },
-          },
-          underlines = {
-            errors = { "underline" },
-            hints = { "underline" },
-            warnings = { "underline" },
-            information = { "underline" },
-          },
         },
         indent_blankline = {
           enabled = true,
@@ -62,11 +38,6 @@ return {
         leap = true,
         mason = true,
         mini = true,
-        noice = true,
-        navic = {
-          enabled = true,
-          custom_bg = "NONE",
-        },
         notify = true,
         treesitter = true,
         lsp_trouble = true,
@@ -81,17 +52,29 @@ return {
   },
   {
     "nvim-lualine/lualine.nvim",
+    event = "VeryLazy",
     dependencies = {
       {
         "catppuccin/nvim",
         name = "catppuccin",
       },
     },
-    opts = {
-      options = {
-        theme = "catppuccin",
-      },
-    },
+    opts = function(_, opts)
+      return vim.tbl_deep_extend("force", opts, {
+        options = {
+          icons_enabled = true,
+          theme = "catppuccin",
+          component_separators = { left = "", right = "" },
+          section_separators = { left = "", right = "" },
+          always_divide_middle = true,
+          globalstatus = true,
+        },
+        extensions = {
+          "neo-tree",
+          "nvim-dap-ui",
+        },
+      })
+    end,
   },
   {
     "akinsho/bufferline.nvim",
@@ -106,5 +89,9 @@ return {
     opts = {
       colorscheme = "catppuccin",
     },
+  },
+  {
+    "SmiteshP/nvim-navic",
+    enabled = false,
   },
 }

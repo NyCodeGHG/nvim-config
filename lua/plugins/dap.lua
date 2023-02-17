@@ -1,7 +1,3 @@
-local extension_path = vim.env.HOME .. "/.vscode-server/extensions/vadimcn.vscode-lldb-1.8.1/"
-local codelldb_path = extension_path .. "adapter/codelldb"
-local liblldb_path = extension_path .. "lldb/lib/liblldb.so" -- MacOS: This may be .dylib
-
 return {
   {
     "Pocco81/dap-buddy.nvim",
@@ -153,6 +149,6 @@ return {
   {
     "microsoft/vscode-js-debug",
     event = "BufReadPre *.js *.ts",
-    build = "npm install --legacy-peer-deps && npm run compile",
+    build = "npm ci --legacy-peer-deps && npm run compile",
   },
 }
