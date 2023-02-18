@@ -1,9 +1,5 @@
 return {
   {
-    "Pocco81/dap-buddy.nvim",
-    event = "BufReadPre",
-  },
-  {
     "theHamsta/nvim-dap-virtual-text",
     config = true,
     event = "BufReadPre",
