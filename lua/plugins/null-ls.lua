@@ -9,6 +9,7 @@ return {
           nls.builtins.formatting.stylua,
           nls.builtins.diagnostics.flake8,
           nls.builtins.formatting.pg_format,
+          nls.builtins.formatting.prettierd,
           nls.builtins.diagnostics.actionlint,
         },
       }
