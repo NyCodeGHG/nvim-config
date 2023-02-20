@@ -1,7 +1,7 @@
 return {
   {
     "NyCodeGHG/presence.nvim",
-    event = "BufReadPre",
+    event = "VeryLazy",
     init = function()
       require("presence"):setup({
         buttons = false,

@@ -2,7 +2,7 @@ return {
   {
     "catppuccin/nvim",
     name = "catppuccin",
-    lazy = true,
+    colorscheme = "catppuccin",
     opts = {
       flavour = "mocha", -- latte, frappe, macchiato, mocha
       term_colors = true,
@@ -61,12 +61,12 @@ return {
   {
     "nvim-lualine/lualine.nvim",
     event = "VeryLazy",
-    dependencies = {
-      {
-        "catppuccin/nvim",
-        name = "catppuccin",
-      },
-    },
+    -- dependencies = {
+    --   {
+    --     "catppuccin/nvim",
+    --     name = "catppuccin",
+    --   },
+    -- },
     opts = function(_, opts)
       return vim.tbl_deep_extend("force", opts, {
         options = {
@@ -86,17 +86,12 @@ return {
   },
   {
     "akinsho/bufferline.nvim",
+    event = "VeryLazy",
     opts = function()
       return {
         highlights = require("catppuccin.groups.integrations.bufferline").get(),
       }
     end,
-  },
-  {
-    "LazyVim/LazyVim",
-    opts = {
-      colorscheme = "catppuccin",
-    },
   },
   {
     "SmiteshP/nvim-navic",

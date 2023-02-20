@@ -1,6 +1,5 @@
 local command
 if vim.fn.has("unix") then
-  print("unix")
   command = { "sh", "-icl", "lazygit" }
 else
   command = "lazygit"
