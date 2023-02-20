@@ -1,8 +1,8 @@
 local command
-if vim.fn.has("unix") then
-  command = { "sh", "-icl", "lazygit" }
-else
+if vim.fn.has("windows") == 1 then
   command = "lazygit"
+else
+  command = { "sh", "-icl", "lazygit" }
 end
 
 vim.keymap.set("n", "<leader>gg", function()

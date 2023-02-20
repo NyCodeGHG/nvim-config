@@ -61,12 +61,12 @@ return {
   {
     "nvim-lualine/lualine.nvim",
     event = "VeryLazy",
-    -- dependencies = {
-    --   {
-    --     "catppuccin/nvim",
-    --     name = "catppuccin",
-    --   },
-    -- },
+    dependencies = {
+      {
+        "catppuccin/nvim",
+        name = "catppuccin",
+      },
+    },
     opts = function(_, opts)
       return vim.tbl_deep_extend("force", opts, {
         options = {

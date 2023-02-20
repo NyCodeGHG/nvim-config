@@ -6,6 +6,7 @@ return {
   {
     "simrat39/rust-tools.nvim",
     event = "BufRead *.rs",
+    lazy = true,
     opts = function()
       return {
         server = {
@@ -40,6 +41,7 @@ return {
   {
     "saecki/crates.nvim",
     event = "BufRead Cargo.toml",
+    lazy = true,
     dependencies = {
       "nvim-lua/plenary.nvim",
     },
