@@ -8,6 +8,13 @@ return {
       term_colors = true,
       no_italic = true,
       no_bold = false,
+      highlight_overrides = {
+        all = function(colors)
+          return {
+            LeapBackdrop = { fg = colors.surface2 },
+          }
+        end,
+      },
       styles = {
         comments = {},
         conditionals = {},
@@ -47,6 +54,7 @@ return {
           enabled = true,
           enable_ui = true,
         },
+        fidget = true,
       },
     },
   },
