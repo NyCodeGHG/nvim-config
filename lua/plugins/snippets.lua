@@ -27,6 +27,7 @@ return {
       local s = ls.snippet
       local t = ls.text_node
       local f = ls.function_node
+      local i = ls.insert_node
       ls.add_snippets("php", {
         s("ns", {
           t("namespace "),
@@ -35,6 +36,14 @@ return {
         }),
         s("strict", {
           t("declare(strict_types=1);"),
+        }),
+      })
+
+      ls.add_snippets("rust", {
+        s("amain", {
+          t({ "#[tokio::main]", "async fn main() {", "    " }),
+          i(0),
+          t({ "", "}" }),
         }),
       })
     end,
