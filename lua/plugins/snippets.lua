@@ -38,5 +38,8 @@ return {
         }),
       })
     end,
+    opts = {
+      history = false,
+    },
   },
 }
