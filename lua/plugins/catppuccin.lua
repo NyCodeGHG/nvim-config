@@ -54,7 +54,6 @@ return {
           enabled = true,
           enable_ui = true,
         },
-        fidget = true,
       },
     },
   },
@@ -66,6 +65,7 @@ return {
         "catppuccin/nvim",
         name = "catppuccin",
       },
+      "arkav/lualine-lsp-progress",
     },
     opts = function(_, opts)
       return vim.tbl_deep_extend("force", opts, {
@@ -80,6 +80,11 @@ return {
         extensions = {
           "neo-tree",
           "nvim-dap-ui",
+        },
+        sections = {
+          lualine_x = {
+            "lsp_progress",
+          },
         },
       })
     end,

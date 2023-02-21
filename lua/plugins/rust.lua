@@ -10,6 +10,7 @@ return {
     opts = function()
       return {
         server = {
+          standalone = false,
           on_attach = function(_, bufnr)
             local rt = require("rust-tools")
             vim.keymap.set(
@@ -37,6 +38,18 @@ return {
         },
       }
     end,
+  },
+  {
+    "neovim/nvim-lspconfig",
+    ---@class PluginLspOpts
+    opts = {
+      ---@type lspconfig.options
+      servers = {
+        rust_analyzer = {
+          single_file_support = false,
+        },
+      },
+    },
   },
   {
     "saecki/crates.nvim",
