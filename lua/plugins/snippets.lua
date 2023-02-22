@@ -47,8 +47,37 @@ return {
         }),
       })
     end,
-    opts = {
-      history = false,
-    },
+    opts = function(_, opts)
+      opts.history = false
+      opts.region_check_events = "CursorMoved"
+      opts.delete_check_events = "TextChanged"
+    end,
+    keys = function()
+      return {
+        {
+          "<tab>",
+          function()
+            return require("luasnip").locally_jumpable(1) and "<Plug>luasnip-jump-next" or "<tab>"
+          end,
+          expr = true,
+          silent = true,
+          mode = "i",
+        },
+        {
+          "<tab>",
+          function()
+            require("luasnip").jump(1)
+          end,
+          mode = "s",
+        },
+        {
+          "<s-tab>",
+          function()
+            require("luasnip").jump(-1)
+          end,
+          mode = { "i", "s" },
+        },
+      }
+    end,
   },
 }

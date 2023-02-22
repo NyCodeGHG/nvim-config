@@ -30,9 +30,6 @@ return {
         completion = cmp.config.window.bordered(BORDER_STYLE),
         documentation = cmp.config.window.bordered(BORDER_STYLE),
       }
-      opts.experimental.ghost_text = {
-        hl_group = "@comment",
-      }
     end,
   },
   {
