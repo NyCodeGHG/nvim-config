@@ -9,9 +9,9 @@ return {
       no_italic = true,
       no_bold = false,
       highlight_overrides = {
-        all = function(colors)
+        mocha = function(C)
           return {
-            LeapBackdrop = { fg = colors.surface2 },
+            LeapBackdrop = { fg = C.surface2 },
           }
         end,
       },
@@ -65,7 +65,6 @@ return {
         "catppuccin/nvim",
         name = "catppuccin",
       },
-      "arkav/lualine-lsp-progress",
     },
     opts = function(_, opts)
       return vim.tbl_deep_extend("force", opts, {
@@ -83,7 +82,33 @@ return {
         },
         sections = {
           lualine_x = {
-            "lsp_progress",
+            {
+              function()
+                local blacklist = {
+                  "tailwindcss",
+                  "null-ls",
+                  "eslint",
+                }
+                local msg = "No Active Lsp"
+                local buf_ft = vim.api.nvim_buf_get_option(0, "filetype")
+                local clients = vim.lsp.get_active_clients()
+                if next(clients) == nil then
+                  return msg
+                end
+                for _, client in ipairs(clients) do
+                  local filetypes = client.config.filetypes
+                  if
+                    filetypes
+                    and vim.fn.index(filetypes, buf_ft) ~= -1
+                    and vim.fn.index(blacklist, client.name) == -1
+                  then
+                    return client.name
+                  end
+                end
+                return msg
+              end,
+              icon = " LSP:",
+            },
           },
         },
       })
