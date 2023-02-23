@@ -17,12 +17,14 @@ vim.diagnostic.config({
 return {
   {
     "neovim/nvim-lspconfig",
-    init = function()
+    event = { "BufReadPre", "BufNewFile" },
+    config = function()
       require("lspconfig.ui.windows").default_options.border = BORDER_STYLE
     end,
   },
   {
     "hrsh7th/nvim-cmp",
+    event = "InsertEnter",
     ---@param opts cmp.ConfigSchema
     opts = function(_, opts)
       local cmp = require("cmp")
@@ -34,6 +36,7 @@ return {
   },
   {
     "which-key.nvim",
+    event = "VeryLazy",
     opts = {
       window = {
         border = BORDER_STYLE,
@@ -41,7 +44,8 @@ return {
     },
   },
   {
-    "gitsigns.nvim",
+    "lewis6991/gitsigns.nvim",
+    event = { "BufReadPre", "BufNewFile" },
     opts = {
       preview_config = {
         border = BORDER_STYLE,
@@ -49,13 +53,16 @@ return {
     },
   },
   {
-    "null-ls.nvim",
+    "jose-elias-alvarez/null-ls.nvim",
+    event = { "BufReadPre", "BufNewFile" },
     opts = {
       border = BORDER_STYLE,
     },
   },
   {
-    "mason.nvim",
+
+    "williamboman/mason.nvim",
+    lazy = true,
     opts = {
       ui = {
         border = BORDER_STYLE,

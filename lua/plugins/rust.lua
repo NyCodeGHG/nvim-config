@@ -40,42 +40,12 @@ return {
     end,
   },
   {
-    "neovim/nvim-lspconfig",
-    ---@class PluginLspOpts
-    opts = {
-      ---@type lspconfig.options
-      servers = {
-        rust_analyzer = {
-          single_file_support = false,
-        },
-      },
-    },
-  },
-  {
     "saecki/crates.nvim",
     event = "BufRead Cargo.toml",
     lazy = true,
     dependencies = {
       "nvim-lua/plenary.nvim",
     },
-    init = function()
-      local cmp = require("cmp")
-      require("crates").setup()
-      vim.api.nvim_create_autocmd("BufRead", {
-        group = vim.api.nvim_create_augroup("CmpSourceCargo", { clear = true }),
-        pattern = "Cargo.toml",
-        callback = function()
-          cmp.setup.buffer({
-            sources = cmp.config.sources({
-              { name = "crates" },
-              { name = "nvim_lsp" },
-              { name = "luasnip" },
-              { name = "buffer" },
-              { name = "path" },
-            }),
-          })
-        end,
-      })
-    end,
+    config = true,
   },
 }

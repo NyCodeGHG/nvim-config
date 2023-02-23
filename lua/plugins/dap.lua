@@ -3,27 +3,23 @@ return {
     "theHamsta/nvim-dap-virtual-text",
     config = true,
     event = "BufReadPre",
-    lazy = true,
   },
   {
     "rcarriga/nvim-dap-ui",
     event = "BufReadPre",
     config = true,
-    lazy = true,
   },
   {
     "nvim-telescope/telescope-dap.nvim",
     event = "BufReadPre",
-    lazy = true,
-    init = function()
+    config = function()
       require("telescope").load_extension("dap")
     end,
   },
   {
     "mfussenegger/nvim-dap",
     event = "BufReadPre",
-    lazy = true,
-    init = function()
+    config = function()
       local dap = require("dap")
       local dapui = require("dapui")
 
@@ -104,13 +100,11 @@ return {
   {
     "leoluz/nvim-dap-go",
     event = "BufReadPre *.go",
-    lazy = true,
     config = true,
   },
   {
     "jay-babu/mason-nvim-dap.nvim",
     event = "BufReadPre",
-    lazy = true,
     opts = {
       automatic_setup = true,
     },
@@ -118,8 +112,7 @@ return {
   {
     "mxsdev/nvim-dap-vscode-js",
     event = "BufReadPre *.js *.ts",
-    lazy = true,
-    init = function()
+    config = function()
       require("dap-vscode-js").setup({
         -- node_path = "node", -- Path of node executable. Defaults to $NODE_PATH, and then "node"
         debugger_path = vim.fn.stdpath("data") .. "/lazy/vscode-js-debug/", -- Path to vscode-js-debug installation.
@@ -152,7 +145,6 @@ return {
   {
     "microsoft/vscode-js-debug",
     event = "BufReadPre *.js *.ts",
-    lazy = true,
     build = "npm ci --legacy-peer-deps && npm run compile",
   },
 }

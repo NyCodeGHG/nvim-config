@@ -59,6 +59,7 @@ return {
   },
   {
     "nvim-lualine/lualine.nvim",
+    lazy = true,
     event = "VeryLazy",
     dependencies = {
       {
@@ -117,10 +118,8 @@ return {
   {
     "akinsho/bufferline.nvim",
     event = "VeryLazy",
-    opts = function()
-      return {
-        highlights = require("catppuccin.groups.integrations.bufferline").get(),
-      }
+    opts = function(_, opts)
+      opts.highlights = require("catppuccin.groups.integrations.bufferline").get()
     end,
   },
   {

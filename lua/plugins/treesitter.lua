@@ -9,8 +9,7 @@ return {
   {
     "nvim-treesitter/playground",
     cmd = "TSPlaygroundToggle",
-    lazy = true,
-    init = function()
+    config = function()
       require("nvim-treesitter.configs").setup({})
     end,
   },
