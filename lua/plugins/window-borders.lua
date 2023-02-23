@@ -18,7 +18,7 @@ return {
   {
     "neovim/nvim-lspconfig",
     event = { "BufReadPre", "BufNewFile" },
-    config = function()
+    opts = function()
       require("lspconfig.ui.windows").default_options.border = BORDER_STYLE
     end,
   },
