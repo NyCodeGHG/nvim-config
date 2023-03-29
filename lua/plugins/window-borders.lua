@@ -1,18 +1,20 @@
 local BORDER_STYLE = "rounded"
 
-vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-  border = BORDER_STYLE,
-})
-
-vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
-  border = BORDER_STYLE,
-})
-
-vim.diagnostic.config({
-  float = {
+vim.schedule(function()
+  vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
     border = BORDER_STYLE,
-  },
-})
+  })
+
+  vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
+    border = BORDER_STYLE,
+  })
+
+  vim.diagnostic.config({
+    float = {
+      border = BORDER_STYLE,
+    },
+  })
+end)
 
 return {
   {

@@ -15,19 +15,6 @@ return {
           }
         end,
       },
-      styles = {
-        comments = {},
-        conditionals = {},
-        loops = {},
-        functions = {},
-        keywords = {},
-        strings = {},
-        variables = {},
-        numbers = {},
-        booleans = {},
-        properties = {},
-        types = {},
-      },
       compile_path = vim.fn.stdpath("cache") .. "/catppuccin",
       integrations = {
         cmp = true,
@@ -58,64 +45,6 @@ return {
     },
   },
   {
-    "nvim-lualine/lualine.nvim",
-    lazy = true,
-    event = "VeryLazy",
-    dependencies = {
-      {
-        "catppuccin/nvim",
-        name = "catppuccin",
-      },
-    },
-    opts = function(_, opts)
-      return vim.tbl_deep_extend("force", opts, {
-        options = {
-          icons_enabled = true,
-          theme = "catppuccin",
-          component_separators = { left = "", right = "" },
-          section_separators = { left = "", right = "" },
-          always_divide_middle = true,
-          globalstatus = true,
-        },
-        extensions = {
-          "neo-tree",
-          "nvim-dap-ui",
-        },
-        sections = {
-          lualine_x = {
-            {
-              function()
-                local blacklist = {
-                  "tailwindcss",
-                  "null-ls",
-                  "eslint",
-                }
-                local msg = "No Active Lsp"
-                local buf_ft = vim.api.nvim_buf_get_option(0, "filetype")
-                local clients = vim.lsp.get_active_clients()
-                if next(clients) == nil then
-                  return msg
-                end
-                for _, client in ipairs(clients) do
-                  local filetypes = client.config.filetypes
-                  if
-                    filetypes
-                    and vim.fn.index(filetypes, buf_ft) ~= -1
-                    and vim.fn.index(blacklist, client.name) == -1
-                  then
-                    return client.name
-                  end
-                end
-                return msg
-              end,
-              icon = " LSP:",
-            },
-          },
-        },
-      })
-    end,
-  },
-  {
     "akinsho/bufferline.nvim",
     event = "VeryLazy",
     opts = function(_, opts)
@@ -125,5 +54,15 @@ return {
   {
     "SmiteshP/nvim-navic",
     enabled = false,
+  },
+  {
+    "freddiehaddad/feline.nvim",
+    lazy = false,
+    opts = function()
+      local ctp_feline = require("catppuccin.groups.integrations.feline")
+      return {
+        components = ctp_feline.get(),
+      }
+    end,
   },
 }
