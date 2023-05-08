@@ -105,6 +105,7 @@ return {
   {
     "jay-babu/mason-nvim-dap.nvim",
     event = "BufReadPre",
+    enabled = false,
     opts = {
       automatic_setup = true,
     },
